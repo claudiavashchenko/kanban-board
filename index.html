@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Kanban Board</title>
+</head>
+<body>
+    
+    <header>
+        <div class="info-container">
+            <h1>⟁ Kanban Board</h1>
+
+            <p>A place to organise tasks to completion as well as add new ones and delete old ones.</p>
+        </div>
+        
+        <form class="input-container">
+            <div class="field">
+                <input type="text" id="title" placeholder="tile..." />
+                <input type="text" id="description" placeholder="description..." />
+            </div>
+          
+            <input type="submit" id="submit-button" />
+        </form>
+    </header>
+    
+    <section class="column-container"></section>
+
+    <script src="JS/app.js"></script>
+</body>
+</html>
