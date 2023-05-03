@@ -25,4 +25,27 @@ header .input-container {
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+}
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+.fields #title {
+    width: 270px;
+    border-radius: 10px 0 0 0;
+    border: none;
+    padding: 10px 20px;
+}
+.fields #description {
+    width: 270px;
+    border-radius: 0 0 0 10px;
+    border: none;
+    padding: 20px;
+}
+input[type=submit] {
+    width: 80px;
+    border: none;
+    background-color: rgb(250, 95, 95);
+    border-radius: 0 10px 10px 0;
 }
