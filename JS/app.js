@@ -1,5 +1,7 @@
 const taskLists = document.querySelectorAll(".task-list");
 const backlogTasks = document.querySelector("#backlog .task-list");
+const titleInput = document.querySelector("#title");
+const descriptionInput = document.querySelector("#description");
 
 
 let tasks = [
@@ -103,3 +105,25 @@ function dragDrop() {
     this.append(elementBeingDragged)
 
 }
+
+
+function addTask(){
+
+    const filteredTitles = tasks.filter(task => {
+        return task.title === titleInput.value
+    })
+
+    if(!filteredTitles.length) {
+        const newId = tasks.length
+
+        tasks.push({
+            id: newId,
+            title: titleInput.value,
+            description: descriptionInput.value
+        })
+    }
+
+   
+}
+
+addTask()
