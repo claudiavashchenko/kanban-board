@@ -3,6 +3,7 @@ const backlogTasks = document.querySelector("#backlog .task-list");
 const titleInput = document.querySelector("#title");
 const descriptionInput = document.querySelector("#description");
 const submitButton = document.querySelector("#submit-button");
+const errorContainer = document.querySelector(".error-container")
 
 
 let tasks = [
@@ -106,6 +107,16 @@ function dragDrop() {
     this.append(elementBeingDragged)
 
 }
+function showError(message) {
+    const errorMessage = document.createElement("p")
+    errorMessage.textContent = message
+    errorMessage.classList.add("error-message")
+    errorContainer.append(errorMessage)
+
+    setTimeout(() => {
+       errorContainer.textContent = ""
+    }, 2000)
+}
 
 
 function addTask(e){
@@ -128,6 +139,7 @@ function addTask(e){
     titleInput.value = ""
     descriptionInput.value = ""
     } else {
+      showError("Title must be unique!")
 
     }
 
