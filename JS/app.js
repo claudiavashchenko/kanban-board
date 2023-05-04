@@ -20,7 +20,12 @@ let tasks = [
     }
 ]
 
-function createTask() {
+taskLists.forEach(taskList => {
+    taskList.addEventListener("dragover", dragOver)
+    taskList.addEventListener("drop", dragDrop)
+})
+
+function createTask(taskId, title, description) {
     const taskCard = document.createElement("div")
     taskCard.classList.add("task-container")
 
@@ -28,15 +33,20 @@ function createTask() {
    taskHeader.classList.add("task-header")
 
    const taskTitle = document.createElement("p")
-   taskTitle.textContent = "hi"
+   taskTitle.textContent = title
 
    const taskDescriptionContainer = document.createElement("div")
    taskDescriptionContainer.classList.add("task-description-container")
 
    const taskDescription = document.createElement("p")
-   taskDescription.textContent = "description"
+   taskDescription.textContent = description
 
    taskCard.appendChild(taskHeader)
+
+   taskCard.setAttribute("draggable", true)
+   taskCard.setAttribute("task-id", taskId)
+
+   taskCard.addEventListener("dragstart", dragStart)
 
    taskDescriptionContainer.append(taskDescription)
 
@@ -51,4 +61,22 @@ function createTask() {
 }
 
 
-createTask()
+function addTasks() {
+    tasks.forEach(task => createTask(task.id, task.title, task.description))
+}
+
+addTasks()
+
+let elementBeingDragged
+function dragStart() {
+
+    elementBeingDragged = this
+}
+
+function dragOver(e) {
+    e.preventDefault()
+}
+
+function dragDrop() {
+    this.append(elementBeingDragged)
+}

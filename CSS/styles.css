@@ -73,11 +73,14 @@ header .input-container {
     border-radius: 16px;
     margin: 20px 0;
     box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+    overflow: hidden;
 }
 .task-header {
     background-color: rgb(96, 96, 192);
     color: rgb(255, 255, 255);
     padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
 }
 .task-description-container {
     padding: 10px;
