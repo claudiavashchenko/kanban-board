@@ -57,6 +57,8 @@ function createTask(taskId, title, description) {
    const deleteIcon = document.createElement("p")
    deleteIcon.textContent = "☒"
 
+   deleteIcon.addEventListener("click", deleteTask)
+
    taskHeader.append(taskTitle, deleteIcon)
 
    taskCard.append(taskHeader, taskDescriptionContainer)
@@ -146,3 +148,17 @@ function addTask(e){
    
 }
 submitButton.addEventListener("click", addTask)
+
+function deleteTask() {
+    const headerTitle = this.parentNode.firstChild.textContent
+
+    const filteredTasks = tasks.filter(task => {
+        return task.title === headerTitle
+    })
+
+    tasks = tasks.filter(task => {
+        return task !== filteredTasks[0]
+    })
+
+    this.parentNode.parentNode.remove()
+}
